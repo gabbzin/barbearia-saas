@@ -4,7 +4,7 @@ import { Input } from "./ui/input";
 
 const SearchInput = () => {
   return (
-    <div>
+    <div className="flex">
       <Input
         placeholder="Pesquise serviços ou barbearias"
         type="text"

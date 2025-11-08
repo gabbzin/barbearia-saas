@@ -14,7 +14,7 @@ import {
 import Footer from "./_components/footer";
 
 const Home = async () => {
-  const reccommendedBarbershops = await prisma.barbershop.findMany({
+  const recommendedBarbershops = await prisma.barbershop.findMany({
     orderBy: {
       name: "asc",
     },
@@ -22,7 +22,7 @@ const Home = async () => {
 
   const popularBarbershops = await prisma.barbershop.findMany({
     orderBy: {
-      name: "asc",
+      name: "desc",
     },
   });
 
@@ -51,7 +51,7 @@ const Home = async () => {
         <PageSection>
           <PageSectionTitle>Barbearias</PageSectionTitle>
           <PageSectionScroller>
-            {reccommendedBarbershops.map((barbershop) => (
+            {recommendedBarbershops.map((barbershop) => (
               <BarbershopItem key={barbershop.id} barbershop={barbershop} />
             ))}
           </PageSectionScroller>

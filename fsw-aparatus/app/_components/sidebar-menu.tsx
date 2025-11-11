@@ -44,7 +44,7 @@ export const SidebarMenu = () => {
         </Button>
       </SheetTrigger>
 
-      <SheetContent side="right" className="w-[90vw] max-w-[370px] p-0 gap-6">
+      <SheetContent side="right" className="w-[90vw] max-w-[370px] gap-6 p-0">
         <SheetHeader className="px-5 py-2 text-left">
           <SheetTitle className="text-lg font-bold">Menu</SheetTitle>
         </SheetHeader>
@@ -60,18 +60,18 @@ export const SidebarMenu = () => {
               </AvatarFallback>
             </Avatar>
             <div className="flex flex-col leading-tight">
-              <p className="text-base font-semibold text-foreground">
+              <p className="text-foreground text-base font-semibold">
                 {session.user.name}
               </p>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-muted-foreground text-xs">
                 {session.user.email}
               </p>
             </div>
           </div>
         ) : (
           <div className="flex items-center justify-between px-5">
-            <div className="flex items-center h-12">
-              <p className="text-base font-semibold text-foreground leading-tight">
+            <div className="flex h-12 items-center">
+              <p className="text-foreground text-base leading-tight font-semibold">
                 Olá. Faça seu login!
               </p>
             </div>
@@ -86,10 +86,10 @@ export const SidebarMenu = () => {
           </div>
         )}
 
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <Button
             variant="ghost"
-            className="justify-start gap-3 rounded-full px-5 py-3 w-full"
+            className="w-full justify-start gap-3 rounded-full px-5 py-3"
             asChild
           >
             <Link href="/">
@@ -99,7 +99,7 @@ export const SidebarMenu = () => {
           </Button>
           <Button
             variant="ghost"
-            className="justify-start gap-3 rounded-full px-5 py-3 w-full"
+            className="w-full justify-start gap-3 rounded-full px-5 py-3"
             asChild
           >
             <Link href="/bookings">
@@ -111,12 +111,12 @@ export const SidebarMenu = () => {
 
         <Separator />
 
-        <div className="flex flex-col gap-1 w-full">
+        <div className="flex w-full flex-col gap-1">
           {CATEGORIES.map((category) => (
             <Button
               key={category}
               variant="ghost"
-              className="justify-start rounded-full px-5 py-3 h-10 w-full"
+              className="h-10 w-full justify-start rounded-full px-5 py-3"
             >
               <span className="text-sm font-medium">{category}</span>
             </Button>
@@ -128,11 +128,11 @@ export const SidebarMenu = () => {
         {session && (
           <Button
             variant="ghost"
-            className="justify-start gap-3 rounded-full px-5 py-3 w-full"
+            className="w-full justify-start gap-3 rounded-full px-5 py-3"
             onClick={handleLogout}
           >
             <LogOut className="size-4" />
-            <span className="text-sm font-medium text-muted-foreground">
+            <span className="text-muted-foreground text-sm font-medium">
               Sair da conta
             </span>
           </Button>

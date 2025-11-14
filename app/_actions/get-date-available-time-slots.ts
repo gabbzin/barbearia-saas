@@ -1,10 +1,10 @@
 "use server";
 
 import { actionClient } from "@/lib/actionClient";
-import { auth } from "@/lib/auth";
+// import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { endOfDay, format, startOfDay } from "date-fns";
-import { returnValidationErrors } from "next-safe-action";
+// import { returnValidationErrors } from "next-safe-action";
 import z from "zod";
 
 const inputSchema = z.object({
@@ -38,14 +38,14 @@ export const getDateAvailableTimeSlots = actionClient
   .inputSchema(inputSchema)
   .action(async ({ parsedInput: { barbershopId, date } }) => {
     // lógica para buscar horários disponíveis para o serviço na data fornecida
-    const { headers } = await import("next/headers");
-    const session = await auth.api.getSession({ headers: await headers() });
+    // const { headers } = await import("next/headers");
+    // const session = await auth.api.getSession({ headers: await headers() });
 
-    if (!session?.user) {
-      return returnValidationErrors(inputSchema, {
-        _errors: ["Unauthorized"],
-      });
-    }
+    // if (!session?.user) {
+    //   return returnValidationErrors(inputSchema, {
+    //     _errors: ["Unauthorized"],
+    //   });
+    // }
 
     const bookings = await prisma.booking.findMany({
       where: {
@@ -53,7 +53,7 @@ export const getDateAvailableTimeSlots = actionClient
         date: {
           gte: startOfDay(date),
           lte: endOfDay(date),
-        }
+        },
       },
     });
 

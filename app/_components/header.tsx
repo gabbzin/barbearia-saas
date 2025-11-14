@@ -22,17 +22,19 @@ const Header = () => {
       <div className="flex items-center gap-2">
         {session ? (
           <div className="flex items-center gap-2">
-            <h1>{session.user.name}</h1>
+            {/* <h1>{session.user.name}</h1> */}
             <Button
               variant={"outline"}
-              size={"icon"}
+              size={"sm"}
               onClick={() => authClient.signOut()}
             >
+              Fazer logout
               <LogOutIcon />
             </Button>
           </div>
         ) : (
-          <Button variant={"outline"} size={"icon"} onClick={handleLogin}>
+          <Button variant={"outline"} size={"sm"} onClick={handleLogin}>
+            Fazer Login
             <LogInIcon />
           </Button>
         )}

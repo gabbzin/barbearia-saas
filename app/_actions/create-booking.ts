@@ -20,7 +20,9 @@ export const createBooking = actionClient
     });
     if (!session?.user) {
       return returnValidationErrors(inputSchema, {
-        _errors: ["Unauthorized"],
+        _errors: [
+          "Você não tem autorização para realizar agendamentos. Faça login.",
+        ],
       });
     }
 
@@ -38,7 +40,7 @@ export const createBooking = actionClient
     });
     if (!service) {
       return returnValidationErrors(inputSchema, {
-        _errors: ["Service not found"],
+        _errors: ["Serviço não encontrado."],
       });
     }
     // verificar se já existe agendamento para essa data

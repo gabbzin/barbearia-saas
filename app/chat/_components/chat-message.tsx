@@ -1,4 +1,5 @@
 import { Bot } from "lucide-react";
+import { Streamdown } from "streamdown";
 
 interface AssistantMessageProps {
   content: string;
@@ -8,11 +9,11 @@ export const AssistantMessage = ({ content }: AssistantMessageProps) => {
   return (
     <div className="flex w-full gap-2 pt-6 pr-14 pb-0 pl-3">
       <div className="border-border bg-primary/10 flex size-8 shrink-0 items-center justify-center rounded-full border">
-        <Bot className="text-primary size-3.5"/>
+        <Bot className="text-primary size-3.5" />
       </div>
-      <p className="text-foreground flex-1 text-sm leading-[1.4] whitespace-pre-wrap">
-        {content}
-      </p>
+      <div className="text-foreground flex-1 text-sm leading-[1.4] whitespace-pre-wrap">
+        <Streamdown>{content}</Streamdown>
+      </div>
     </div>
   );
 };
@@ -40,9 +41,9 @@ export const SystemMessage = ({ content }: SystemMessageProps) => {
     <div className="flex w-full flex-col gap-3 px-5 pt-6 pb-0">
       <div className="border-border flex w-full flex-col gap-2.5 rounded-xl border p-3">
         <div className="flex w-full items-center justify-center">
-          <p className="text-muted-foreground text-center text-sm leading-[1.4] whitespace-pre-wrap">
-            {content}
-          </p>
+          <div className="text-muted-foreground text-center text-sm leading-[1.4] whitespace-pre-wrap">
+            <Streamdown>{content}</Streamdown>
+          </div>
         </div>
       </div>
     </div>

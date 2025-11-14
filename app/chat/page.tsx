@@ -8,7 +8,6 @@ import { Button } from "@/app/_components/ui/button";
 import { Input } from "@/app/_components/ui/input";
 import {
   AssistantMessage,
-  SystemMessage,
   UserMessage,
 } from "./_components/chat-message";
 

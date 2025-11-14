@@ -53,8 +53,7 @@ export const getDateAvailableTimeSlots = actionClient
         date: {
           gte: startOfDay(date),
           lte: endOfDay(date),
-        },
-        cancelled: false,
+        }
       },
     });
 
